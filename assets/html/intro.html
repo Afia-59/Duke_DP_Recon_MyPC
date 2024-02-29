@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Gas Exchange Report with 129Xe MRI-technical report"
+    />
+    <meta name="author" content="Sakib Kabir" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link href="../assets/css/report_reset.css" rel="stylesheet" />
+    <link href="../assets/css/report_intro.css" rel="stylesheet" />
+    <title>Introduction Page</title>
+  </head>
+
+  <body>
+    <div class="title-container">
+      <p>Gas Exchange Summary of Subject: {subject_id}</p>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <caption>
+          Parameters
+        </caption>
+        <colgroup>
+          <col class="white" />
+          <col class="silver" />
+        </colgroup>
+
+        <tr class="basic">
+          <td>
+            <p>Scan Date</p>
+          </td>
+          <td>{scan_date}</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Processing Date</p>
+          </td>
+          <td>{process_date}</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Software Version</p>
+          </td>
+          <td>{software_version}</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Pipeline Version</p>
+          </td>
+          <td>{pipeline_version}</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Magnetic Field Strength</p>
+          </td>
+          <td>{field_strength} T</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Dixon Type</p>
+          </td>
+          <td>{scan_type}</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Field of View (cm)</p>
+          </td>
+          <td>{fov}x{fov}x{fov}</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Sample time</p>
+          </td>
+          <td>{sample_time} us</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>RF Excitation</p>
+          </td>
+          <td>{xe_dissolved_offset_frequency} ppm</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Repetition Time (TR) Dissolved</p>
+          </td>
+          <td>{tr_dis} ms</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>TE90</p>
+          </td>
+          <td>{te90} us</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Dissolved Flip Angle</p>
+          </td>
+          <td>{fa_dis} degree</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Gas Flip Angle</p>
+          </td>
+          <td>{fa_gas} degree</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Views and Base Resolution (Vent)</p>
+          </td>
+          <td>{shape_fids}</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Resampled Resolution (Volume)</p>
+          </td>
+          <td>{shape_image}</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Skipped Dissolved FIDs</p>
+          </td>
+          <td>{n_skip_start}</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Remove noisy projections</p>
+          </td>
+          <td>{remove_noise}</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Removed Spike Noise FIDs (Gas)</p>
+          </td>
+          <td>{n_gas_removed}</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Removed Spike Noise FIDs (Dissolved)</p>
+          </td>
+          <td>{n_dis_removed}</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="table-container2">
+      <table>
+        <caption>
+          Parameters
+        </caption>
+        <colgroup>
+          <col class="white" />
+          <col class="silver" />
+        </colgroup>
+
+        <tr class="basic">
+          <td>
+            <p>Bandwidth</p>
+          </td>
+          <td>{bandwidth} Hz/pixel</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Kernel Sharpness</p>
+          </td>
+          <td>{kernel_sharpness}</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Gradient Delay Applied</p>
+          </td>
+          <td>x: {grad_delay_x}, y: {grad_delay_y}, z:{grad_delay_z}</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Flip correction</p>
+          </td>
+          <td>{flip_angle_factor}</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>T2* correction membrane</p>
+          </td>
+          <td>{t2_correction_factor_membrane}</td>
+        </tr>
+        <tr class="basic">
+          <td>
+            <p>T2* correction RBC</p>
+          </td>
+          <td>{t2_correction_factor_rbc}</td>
+        </tr>
+        <tr class="basic">
+          <td>
+            <p>Hb Correction Type</p>
+          </td>
+          <td>{hb_correction_key}</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>RBC Hb Correction Factor</p>
+          </td>
+          <td>{rbc_hb_correction_factor}</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Membrane Hb Correction Factor</p>
+          </td>
+          <td>{membrane_hb_correction_factor}</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Reference Data</p>
+          </td>
+          <td>{reference_data_key}</td>
+        </tr>
+
+        <tr class="basic">
+          <td>
+            <p>Git branch</p>
+          </td>
+          <td>{git_branch}</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
