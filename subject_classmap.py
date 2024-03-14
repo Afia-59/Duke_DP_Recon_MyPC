@@ -276,27 +276,42 @@ class Subject(object):
 
     def reconstruction_ute(self):
         """Reconstruct the UTE image."""
-        if self.config.recon.recon_key == constants.ReconKey.ROBERTSON.value:
-            self.image_proton = reconstruction.reconstruct(
-                data=(recon_utils.flatten_data(self.data_ute)),
-                traj=recon_utils.flatten_traj(self.traj_ute),
-                kernel_sharpness=float(self.config.recon.kernel_sharpness_hr),
-                kernel_extent=9 * float(self.config.recon.kernel_sharpness_hr),
-                image_size=int(self.config.recon.recon_size),
-            )
-            orientation = self.dict_ute[constants.IOFields.ORIENTATION]
-        elif self.config.recon.recon_key == constants.ReconKey.PLUMMER.value:
-            raise NotImplementedError("Plummer CS reconstruction not implemented.")
-        else:
-            raise ValueError(f"Unknown reconstruction key")
-        self.image_proton = img_utils.interp(
-            self.image_proton,
-            self.config.recon.matrix_size // self.config.recon.recon_size,
-        )
-        self.image_proton = img_utils.flip_and_rotate_image(
-            self.image_proton,
-            orientation=orientation,
-        )
+        # loaded_traj=np.load('/mnt/c/Users/usc9q/Documents/Afia/xenon-gas-exchange-consortium-main/trajUTE_afia.npy')
+        # abc=recon_utils.flatten_data(self.data_ute)
+        # print('Afia checkpoint ute data faltten')
+        # print(abc.shape)
+        # trajflatShape=recon_utils.flatten_traj(self.traj_ute)
+        # print('Afia checkpoint ute traj faltten')
+        # print(trajflatShape.shape)
+        # if self.config.recon.recon_key == constants.ReconKey.ROBERTSON.value:
+        #     self.image_proton = reconstruction.reconstruct(
+        #         data=(recon_utils.flatten_data(self.data_ute)),
+        #         traj=loaded_traj,
+        #         kernel_sharpness=float(self.config.recon.kernel_sharpness_hr),
+        #         kernel_extent=7 * 0.15,
+        #         image_size=int(self.config.recon.recon_size),
+        #     )
+        #     orientation = self.dict_ute[constants.IOFields.ORIENTATION]
+        # elif self.config.recon.recon_key == constants.ReconKey.PLUMMER.value:
+        #     raise NotImplementedError("Plummer CS reconstruction not implemented.")
+        # else:
+        #     raise ValueError(f"Unknown reconstruction key")
+        # self.image_proton = img_utils.interp(
+        #     self.image_proton,
+        #     self.config.recon.matrix_size // self.config.recon.recon_size,
+        # )
+        # self.image_proton = img_utils.flip_and_rotate_image(
+        #     self.image_proton,
+        #     orientation=orientation,
+        # )
+        ##Following lines were written by afia-240312
+        import mapvbvd
+        #from GX_Recon_utils import *
+        from GX_Recon_UTE import recon_ute_um
+        # twixFile='/mnt/c/Users/usc9q/Documents/Afia/xenon-gas-exchange-consortium-main/assets/XeClinical3/meas_MID00148_FID60439_4_xe_radial_ute.dat'
+        uteTwix=io_utils.get_ute_twix_files(str(self.config.data_dir))
+        ute = abs(recon_ute_um(uteTwix))
+        self.image_proton=ute
         io_utils.export_nii(np.abs(self.image_proton), "tmp/image_proton.nii")
 
     def reconstruction_gas(self):
