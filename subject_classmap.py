@@ -994,6 +994,19 @@ class Subject(object):
             ),
             "tmp/gas_rgb.nii",
         )
+        plot.map_and_overlay_to_rgb(
+                self.image_rbc2gas_binned, proton_reg, constants.CMAP.RBC_BIN2COLOR
+            )        
+        np.save((self.config.data_dir + 'rbc2gas_rgb.npy'),plot.map_and_overlay_to_rgb(
+                self.image_rbc2gas_binned, proton_reg, constants.CMAP.RBC_BIN2COLOR
+            ) ) #afia 240401
+        np.save((self.config.data_dir + 'membrane2gas_rgb.npy'),plot.map_and_overlay_to_rgb(
+                self.image_membrane2gas_binned,proton_reg,
+                constants.CMAP.MEMBRANE_BIN2COLOR
+            ))#afia 240401
+        np.save((self.config.data_dir + 'gas_rgb.npy'),plot.map_and_overlay_to_rgb(
+                self.image_gas_binned, proton_reg,constants.CMAP.VENT_BIN2COLOR
+            ))#afia 240401
 
     def save_config_as_json(self):
         """Save subject config .py file as json."""

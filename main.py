@@ -11,6 +11,7 @@ FLAGS = flags.FLAGS
 
 _CONFIG = config_flags.DEFINE_config_file("config", None, "config file.") #afia240228
 #_CONFIG = config_flags.DEFINE_config_file("config", "config/demo_config_basic.py", "config file.") #afia240228-Changing the config file
+#_CONFIG = config_flags.DEFINE_config_file("config", "config/MepoXe41Pre.py", "config file.")
 flags.DEFINE_boolean("force_recon", False, "force reconstruction for the subject")
 flags.DEFINE_boolean("force_readin", False, "force read in .mat for the subject")
 flags.DEFINE_bool("force_segmentation", False, "run segmentation again.") #afia240228

@@ -26,6 +26,7 @@ class Config(base_config.Config):
 
         # set what kind of segmentation to use
         self.segmentation_key = constants.SegmentationKey.MANUAL_VENT.value
+        #self.segmentation_key = constants.SegmentationKey.CNN_VENT.value #afia240229 if you want to do CNN segmentation
         # define path of manual segmentation
         self.manual_seg_filepath = os.path.join(self.data_dir, "mask.nii")
 
